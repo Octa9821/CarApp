@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Car App</title>
+    <script src="knockout-3.5.1.js"></script>
+</head>
+<body>
+    Make: <input type="text" name="txtMake" data-bind="value: Make"/><br />
+    Power: <input type="number" value="numPower" data-bind="value: Power"/><br />
+    <p>
+        This car is <span data-bind="text: MakeAndPower"/>
+    </p>
+    <script>
+        var MakeViewModel = function (make, power) {
+            this.Make = ko.observable(make);
+            this.Power = ko.observable(power);
+            this.MakeAndPower = ko.computed(function () {
+                return this.Make() + ', ' + this.Power() + 'hp';
+            }, this);
+        }
+        ko.applyBindings(new MakeViewModel("Acura", 230))
+    </script>
+</body>
+</html>
