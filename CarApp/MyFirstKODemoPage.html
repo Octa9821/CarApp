@@ -6,14 +6,43 @@
     <script src="knockout-3.5.1.js"></script>
 </head>
 <body>
-    Make: <input type="text" name="txtMake" data-bind="value: Make"/><br/>
+    Make: <input type="text" name="txtMake" data-bind="value: Make" /><br />
     Power: <input type="number" value="numPower" data-bind="value: Power" style="margin-top: 10px; margin-bottom: 10px" /><br />
-    <div style="align-items: center; border: 0.25px solid black; border-radius: 5px">    
+    <div style="align-items: center; border: 0.25px solid black; border-radius: 5px">
         Convertible: <input type="checkbox" value="convertible" data-bind="checked: Convertible" /><br />
     </div>
     <p>
-        This car is <span data-bind="text: MakeAndPower"/>
+        This car is <span data-bind="text: MakeAndPower" />
     </p>
+    <style>
+        .button {
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+        }
+
+            .button1:hover {
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+
+    <button class="button button1">Add car</button>
+
     <script>
         var MakeViewModel = function (make, power, convertible) {
             this.Make = ko.observable(make);
@@ -29,7 +58,8 @@
                 }
             }, this);
         }
+
         ko.applyBindings(new MakeViewModel("Acura", 230))
     </script>
 </body>
-</html>
+        </html >
